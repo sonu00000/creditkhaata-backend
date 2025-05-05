@@ -16,6 +16,10 @@ const authMiddleware = require("./middleware/auth.middleware")
 
 app.use(express.json())
 
+app.get("/", (req, res) => {
+  res.send("ceditkhaata backend api")
+})
+
 app.use("/api/v1/auth", authRouter)
 app.use("/api/v1/customers", authMiddleware, customerRouter)
 app.use("/api/v1/loans", authMiddleware, loanRouter)
