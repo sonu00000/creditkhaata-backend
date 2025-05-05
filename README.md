@@ -23,7 +23,6 @@ CrediKhaata is a Node.js-based backend API for managing customers, issuing loans
 - **MongoDB** with **Mongoose**
 - **JWT** for authentication
 - **dotenv** for environment variable management
-- **morgan** for request logging
 - **Swagger** for API documentation
 
 ---
@@ -64,7 +63,7 @@ npm install
 Create a `.env` file in the root directory:
 
 ```env
-PORT=5000
+PORT=10000
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret_key
 JWT_EXPIRY=1d
