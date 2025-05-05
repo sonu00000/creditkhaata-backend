@@ -4,6 +4,9 @@ const express = require("express")
 const connectDB = require("./db/connect")
 const app = express()
 
+const swaggerUi = require("swagger-ui-express")
+const swaggerDocument = require("./swagger-output.json")
+
 // routers
 const authRouter = require("./routes/auth.route")
 const customerRouter = require("./routes/customer.route")
@@ -15,9 +18,10 @@ const statsRouter = require("./routes/stats.route")
 const authMiddleware = require("./middleware/auth.middleware")
 
 app.use(express.json())
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 app.get("/", (req, res) => {
-  res.send("ceditkhaata backend api")
+  res.send("creditkhaata backend api")
 })
 
 app.use("/api/v1/auth", authRouter)
