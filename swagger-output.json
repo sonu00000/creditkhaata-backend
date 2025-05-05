@@ -5,9 +5,9 @@
     "title": "REST API",
     "description": ""
   },
-  "host": "https://creditkhaata-backend.onrender.com",
+  "host": "creditkhaata-backend.onrender.com",
   "basePath": "/",
-  "schemes": ["http"],
+  "schemes": ["https"],
   "paths": {
     "/": {
       "get": {
