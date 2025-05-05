@@ -29,12 +29,8 @@
             "schema": {
               "type": "object",
               "properties": {
-                "email": {
-                  "example": "any"
-                },
-                "password": {
-                  "example": "any"
-                }
+                "email": { "example": "any" },
+                "password": { "example": "any" }
               }
             }
           }
@@ -56,12 +52,8 @@
             "schema": {
               "type": "object",
               "properties": {
-                "email": {
-                  "example": "any"
-                },
-                "password": {
-                  "example": "any"
-                }
+                "email": { "example": "any" },
+                "password": { "example": "any" }
               }
             }
           }
@@ -103,21 +95,11 @@
             "schema": {
               "type": "object",
               "properties": {
-                "name": {
-                  "example": "any"
-                },
-                "phone": {
-                  "example": "any"
-                },
-                "address": {
-                  "example": "any"
-                },
-                "trustScore": {
-                  "example": "any"
-                },
-                "creditLimit": {
-                  "example": "any"
-                }
+                "name": { "example": "any" },
+                "phone": { "example": "any" },
+                "address": { "example": "any" },
+                "trustScore": { "example": "any" },
+                "creditLimit": { "example": "any" }
               }
             }
           }
@@ -208,30 +190,14 @@
             "schema": {
               "type": "object",
               "properties": {
-                "customerId": {
-                  "example": "any"
-                },
-                "itemDescription": {
-                  "example": "any"
-                },
-                "loanAmount": {
-                  "example": "any"
-                },
-                "issueDate": {
-                  "example": "any"
-                },
-                "dueDate": {
-                  "example": "any"
-                },
-                "frequency": {
-                  "example": "any"
-                },
-                "interestPercent": {
-                  "example": "any"
-                },
-                "graceDays": {
-                  "example": "any"
-                }
+                "customerId": { "example": "any" },
+                "itemDescription": { "example": "any" },
+                "loanAmount": { "example": "any" },
+                "issueDate": { "example": "any" },
+                "dueDate": { "example": "any" },
+                "frequency": { "example": "any" },
+                "interestPercent": { "example": "any" },
+                "graceDays": { "example": "any" }
               }
             }
           }
@@ -258,15 +224,9 @@
             "schema": {
               "type": "object",
               "properties": {
-                "loanId": {
-                  "example": "any"
-                },
-                "amount": {
-                  "example": "any"
-                },
-                "date": {
-                  "example": "any"
-                }
+                "loanId": { "example": "any" },
+                "amount": { "example": "any" },
+                "date": { "example": "any" }
               }
             }
           }
