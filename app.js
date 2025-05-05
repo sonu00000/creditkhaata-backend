@@ -21,7 +21,7 @@ app.use(express.json())
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 app.get("/", (req, res) => {
-  res.send("creditkhaata backend api")
+  res.send("Creditkhaata backend api")
 })
 
 app.use("/api/v1/auth", authRouter)
