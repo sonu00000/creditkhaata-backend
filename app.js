@@ -26,7 +26,7 @@ app.use("/api/v1/loans", authMiddleware, loanRouter)
 app.use("/api/v1/repayments", authMiddleware, repaymentRouter)
 app.use("/api/v1/stats", authMiddleware, statsRouter)
 
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 10000
 
 const start = async () => {
   try {
