@@ -39,27 +39,41 @@ const getSummary = async (req, res) => {
       }
     }
 
-    // 4. Average repayment time (in days)
-    // let totalDays = 0
-    // let repCount = 0
-    // repayments.forEach((rep) => {
-    //   const loan = loans.find((l) => l._id.toString() === rep.loanId.toString())
-    //   if (loan) {
-    //     const createdAt = parseISO(loan.createdAt.toISOString())
-    //     const repaidAt = parseISO(rep.createdAt.toISOString())
-    //     const days = differenceInDays(repaidAt, createdAt)
-    //     totalDays += days
-    //     repCount += 1
-    //   }
-    // })
+    // Get all fully paid loans for this user
+    const paidLoans = await Loan.find({
+      userId: req.user.userId,
+      status: "paid",
+    })
 
-    // const averageRepaymentTime =
-    //   repCount > 0 ? (totalDays / repCount).toFixed(2) : 0
+    let totalDays = 0
+    let count = 0
+
+    for (const loan of paidLoans) {
+      const repayments = await Repayment.find({ loanId: loan._id }).sort({
+        date: 1,
+      })
+
+      if (repayments.length > 0) {
+        const firstDate = new Date(loan.issueDate)
+        const lastRepaymentDate = new Date(
+          repayments[repayments.length - 1].date
+        )
+
+        const diffInMs = lastRepaymentDate - firstDate
+        const diffInDays = diffInMs / (1000 * 60 * 60 * 24)
+
+        totalDays += diffInDays
+        count++
+      }
+    }
+
+    const averageRepaymentTime = count > 0 ? (totalDays / count).toFixed(2) : 0
 
     return res.status(StatusCodes.OK).json({
       totalLoaned,
       totalCollected,
       overdueAmount,
+      averageRepaymentTime,
     })
   } catch (error) {
     res.status(500).json({ message: "Summary failed", error: error.message })
