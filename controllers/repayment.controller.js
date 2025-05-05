@@ -15,6 +15,10 @@ const recordRepayment = async (req, res) => {
         .json({ message: "Loan not found" })
     }
 
+    if (loan.balance <= 0) {
+      return res.status(StatusCodes.OK).json({ message: "Loan already paid." })
+    }
+
     if (amount > loan.balance) {
       return res.status(StatusCodes.BAD_REQUEST).json({
         message: `Amount is greater than Loan balance which is ${loan.balance}. Enter amount less than or equal to loan balance`,
